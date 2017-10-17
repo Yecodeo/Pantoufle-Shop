@@ -1,0 +1,262 @@
+/*
+ * Fonts
+ */
+
+body,
+input,
+textarea,
+button {
+    color: #555;
+    font-family: 'Raleway';
+    line-height: 1.5;
+}
+
+.titre {
+    font-family: 'Playfair Display';
+}
+
+h2 {
+    text-align: center;
+    /*font-size: 1.5em;*/
+    text-transform: uppercase;
+}
+
+main {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+/*
+ * Header
+ */
+
+#header {
+    background: rgb(230, 245, 255);
+    /*font-size: 1.5em;*/
+    /*padding: 3em 0 1em;*/
+    text-align: center;
+}
+
+#header h1 {
+    color: #000;
+    font-size: 2em;
+    letter-spacing: .02em;
+    margin: 0;
+}
+
+#header p {
+    color: #888;
+    font-weight: 200;
+}
+
+#header nav {
+    margin-bottom: 0;
+}
+
+.nav>li>a {
+    background-color: #286090;
+    border-color: #286090;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    background-color: rgb(100, 230, 240);
+}
+
+.navbar-toggle {
+    background-color: #286090;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+
+/*
+ * Products
+ */
+
+.product {
+    padding: 25px;
+}
+
+.product-name {
+    /* Layout */
+    position: absolute;
+    top: 0;
+    height: 200px;
+    padding: 50px 0;
+    margin: 0;
+    /* Display */
+    background: rgba(230, 245, 255, 0.9);
+    opacity: 0;
+    transition: .4s;
+    /* Text */
+    color: #000;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.product-link:hover .product-name {
+    opacity: 1;
+}
+
+.product-desc {
+    font-size: .9em;
+}
+
+.product-price {
+    text-align: center;
+    margin: .5em 0;
+}
+
+.product-price-old {
+    color: #888;
+    text-decoration: line-through;
+}
+
+.product-price-real {
+    color: #000;
+}
+
+.product-infos {
+    text-align: center;
+}
+
+.product-see {
+    color: #555;
+}
+
+.product-see-text {
+    font-size: .8em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.product-see:hover .fa {
+    color: rgb(100, 230, 240);
+}
+
+.product-add {
+    border: 0;
+    background: #286090;
+    color: #fff;
+    padding: .6em 1.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: .5em;
+    cursor: pointer;
+}
+
+.product-add:hover {
+    background: rgb(100, 230, 240);
+}
+
+
+/*
+ * Product
+ */
+
+#product {
+    padding-bottom: 15em;
+    overflow: hidden;
+}
+
+#product-title {
+    color: #000;
+    font-size: 2.5em;
+    font-family: 'Playfair display';
+    line-height: 1.2;
+}
+
+#product-price {
+    margin: .5em 0;
+    font-size: 1.5em
+}
+
+#product-short {
+    font-size: 1.1em;
+    color: #888;
+}
+
+#product-link {
+    text-decoration: underline;
+}
+
+#product-add {
+    font-size: 1.1em;
+    margin-top: 2em;
+}
+
+.product-detail {
+    color: #000;
+    font-size: 2em;
+    margin-top: 1em;
+}
+
+
+/*
+ * Cart
+ */
+
+table {
+    width: 100%;
+}
+
+table td {
+    border: 1px solid lightgrey;
+}
+
+#cart form.input-group {
+    width: 130px;
+}
+
+
+/*
+ * Signup, Login
+ */
+
+#signup form,
+#login form {
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid lightgrey;
+}
+
+
+/*
+ * Footer
+ */
+
+#footer {
+    background: rgb(230, 245, 255);
+    padding: 1em 0;
+    text-align: center;
+}
+
+
+/* 
+Modal
+*/
+
+.product_img {
+    height: 150px;
+    width: 150px;
+    background-position: center center;
+}
+
+.desc,
+.desc_long {
+    margin: 17px 0px;
+}
+
+.header {
+    background-color: #e6f5ff;
+}
+
+.text-default {
+    vertical-align: text-top;
+}
