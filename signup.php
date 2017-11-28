@@ -7,7 +7,7 @@ require("inc/functions.php");
 $errors = [];
 $message = "";
 // => si le form a été soumis
-if(isset($_POST["signup"])) {
+ if(isset($_POST["signup"])) {
     // valider les données (contraintes)
     // champs doivent pas être vides
     if($_POST["firstName"] == "") {
@@ -22,11 +22,11 @@ if(isset($_POST["signup"])) {
     }
     // password: 8 caractères minimum
     if(strlen($_POST["password"]) < 8) {
-        $errors[] = "MDP sécurisé = 8 caractères minimum!";
+        $errors[] = "Le mot de passe doit étre de 8 caractères minimum!";
     }
     // password == confirm
     if($_POST["password"] != $_POST["confirmPassword"]) {
-        $errors[] = "MDP incohérents vérifiez votre saisie.";
+        $errors[] = "Mot de passe incohérents vérifiez votre saisie.";
     }
 
     // si la saisie est valide
@@ -43,12 +43,11 @@ if(isset($_POST["signup"])) {
         $result = saveClient($clientData);
 
         if($result) {
-            $_SESSION["messages"][] = "Vous êtes à présent inscrit !";
             // redirection
-            header('Location: index.php');
+            header('Location: login.php');
         }
         else {
-            $_SESSION["messages"][] = "Erreur lors de l'inscription";
+            $errors[] = "Erreur lors de l'inscription";
         }
     }
 }

@@ -1,10 +1,5 @@
 <?php 
-if (islogged()){
 
-} else 
-{
-	header('location: login.php');
-}
 
 ?>
 <main id="edit-profile" class="container">

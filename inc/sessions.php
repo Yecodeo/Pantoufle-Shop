@@ -106,14 +106,6 @@ function isAdmin() {
     }
 }
 
-function isLogged(){
-    if (isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
-        return true;
-    } else 
-    {
-        return false;
-    }
-}
 function getUserId() {
     return $_SESSION["user"]["id"];
 }
