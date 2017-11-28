@@ -1,64 +1,82 @@
-<main id="signup" class="container">
-	<h2>Inscription</h2>
-    <div class="row">
-    	<form id="signup-form" class="col-sm-6 col-sm-offset-3 form-horizontal" action="" method="post">
-    	    <div class="alert <?= (!empty($errors))?"alert-danger":"" ?>">
-    	        <?php foreach ($errors as $error) : ?>
-    	            <p><?= $error ?></p>
-    	        <?php endforeach; ?>
-    	    </div>
-    		<!-- firstname, lastname, email, password, confirmpassword -->
-    		<div class="form-group">
-    			<label class="control-label" for="firstName">Prénom</label>
-    			<input
-                    type="text"
-                    id="firstName"
-                    class="form-control"
-                    name="firstName"
-                    value="<?= (isset($_POST["firstName"]))?$_POST["firstName"]:"" ?>"
-                    placeholder="votre prenom">
-    		</div>
-    		<div class="form-group">
-    			<label class="control-label" for="lastName">Nom</label>
-    			<input
-                    type="text"
-                    id="lastName"
-                    class="form-control"
-                    name="lastName"
-                    value="<?= (isset($_POST["lastName"]))?$_POST["lastName"]:"" ?>"
-                    placeholder="votre nom de famille">
-    		</div>
-    		<div class="form-group">
-    			<label class="control-label" for="email">Email</label>
-    			<input
-                    type="text"
-                    id="email"
-                    class="form-control"
-                    name="email"
-                    value="<?= (isset($_POST["email"]))?$_POST["email"]:"" ?>"
-                    placeholder="votre adresse mail valide">
-    		</div>
-    		<div class="form-group">
-    			<label class="control-label" for="password">Mot de passe</label>
-    			<input
-                    type="password"
-                    id="password"
-                    class="form-control"
-                    name="password"
-                    value="<?= (isset($_POST["password"]))?$_POST["password"]:"" ?>"
-                    placeholder ="8 caractères min">
-    		</div>
-    		<div class="form-group">
-    			<label class="control-label" for="confirmPassword">Confirmer</label>
-    			<input
-                    type="password"
-                    id="confirmPassword"
-                    class="form-control"
-                    name="confirmPassword"
-                    value="<?= (isset($_POST["confirmPassword"]))?$_POST["confirmPassword"]:"" ?>"
-                    placeholder ="confirmez le mot de passe">
-    		</div>
-    	    <button class="pull-right" type="submit" name="signup">Je m'inscris</button>
-    	</form>
+<div>
+<div class="notification is-primary">
+    <p class="title"> Inscription </p>
+</div>
+
+<div class="columns is-mobile is-centered">
+  <div class="column is-half is-narrow">
+      <?php if (!empty($errors) && isset($errors)) : ?>
+          <div class="notification is-danger">
+              <?php
+                foreach ($errors as $value){
+                    echo $value . '</br>';
+                }
+              ?>
+          </div>
+      <?php endif ?>
+
+    <form action="" method="post">
+        <div class="field">
+            <label class="label">Nom</label>
+            <div class="control">
+                <input class="input" 
+                       type="text" 
+                       name="firstName" 
+                       placeholder="e.g Smith"
+                       value="<?= (isset($_POST["firstName"])) ? $_POST["firstName"] : "" ?>">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Prénom</label>
+            <div class="control">
+                <input class="input" 
+                       type="text" 
+                       placeholder="e.g Alex"
+                       name="lastName"
+                       value="<?= (isset($_POST["lastName"]))?$_POST["lastName"]:"" ?>"
+                       >
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">E-mail</label>
+            <div class="control">
+                <input class="input" 
+                       type="email" 
+                       placeholder="e.g. alexsmith@gmail.com"
+                       name="email"
+                       value="<?= (isset($_POST["email"]))?$_POST["email"]:"" ?>"
+                       >
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Mot de passe</label>
+            <div class="control">
+                <input class="input" 
+                       type="password" 
+                       placeholder=""
+                       name="password"
+                       value="<?= (isset($_POST["password"]))?$_POST["password"]:"" ?>"
+                       >
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Confirmation de mot de passe</label>
+            <div class="control">
+                <input class="input" 
+                       type="password" 
+                       placeholder=""
+                       name="confirmPassword"
+                       value="<?= (isset($_POST["confirmPassword"]))?$_POST["confirmPassword"]:"" ?>"
+                       >
+            </div>
+        </div>
+    <div class="field">
+        <div class="control">
+            <button class="button is-primary" name="signup">Je m'inscris</button>
+        </div>
     </div>
-</main>
+    </form>
+  </div>
+</div>
+</div>
