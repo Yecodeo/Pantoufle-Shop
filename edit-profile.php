@@ -1,4 +1,5 @@
 <?php
+require("inc/functions.php");
 
 // gère la page de modification des infos de profil
 // Un client (utilisateur authentifié/connecté)

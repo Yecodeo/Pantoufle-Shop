@@ -9,31 +9,25 @@ require("inc/functions.php");
  * - la manipulation des sessions se fait dans des fonctions, dans le fichier sessions.php
  */
 
- // * Fonctionnement de la page:
- // * - si le client n'est pas authentifié, il doit être redirigé vers la page "login.php"
+/**
+ * Verifier si l'utilisateur est authentifier
+ * sinon redirection a la page login
+ */
 if(!isLoggedIn()) {
     header("Location: login.php");
 }
-// echo "je suis loggé";
 
- // * - s'il est authentifié, il faut
- // *     - récupérer ses informations complètes en base de données
+/**
+ * Récuperation des données de l'user
+ */
 $id = getUserId();
 $clientData = getUser($id);
 
-// appel de la fonction qui récupère toutes les commandes d'un client
-$clientCarts = getClientCarts($id);
-
-// echo "<pre>";
-// print_r($clientCarts);
-// echo "</pre>";
-
- /*     - les afficher en liste sur la page sous le forme:
- *         - Nom: ...
- *         - Prénom: ...
- *         - Adresse: ... / "non communiquée" (si l'adresse est vide)
- *         etc.
+/**
+ * Lister toutes les commandes du client 
  */
+ $clientCarts = getClientCarts($id);
+
 include("templates/header.php");
 include("templates/client-account.php");
 include("templates/footer.php");

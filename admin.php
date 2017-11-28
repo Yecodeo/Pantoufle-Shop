@@ -22,13 +22,16 @@ if (isAdmin()) {
         $pg = $_GET['pg'];
         switch ($pg) {
             case 'produits':
-                include('templates/admin-produit.php');
+                include('templates/admin-product.php');
                 break;
             case 'clients':
                 include('templates/admin-clients.php');
                 break;
             case 'commandes':
-            include('templates/admin-commandes.php');
+                include('templates/admin-commandes.php');
+            break;
+            case 'edit':
+                include('templates/admin-edit-product.php');
             break;
             default:
                echo "Bienvenue, maître";

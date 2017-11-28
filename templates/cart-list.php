@@ -1,3 +1,15 @@
+
+        <div class="notification is-success">
+                <div class="columns">
+                        <div class="column is-8">
+                                <p class="title">
+                                Votre panier
+                                </p>
+                        </div>
+                </div>
+
+
+        </div>
 <main id="cart"  class="container">
     <?php if(isset($message)) : ?>
 		<div class="alert alert-info">
@@ -8,57 +20,61 @@
     <!-- // si le panier est vide <=> le tableau $cart sera vide -->
     <?php if(empty($cart)) : ?>
         <!-- alors affiche un message d'info -->
-		<div class="alert alert-info">
-        	<p>Votre panier est vide! Allez faire un peu de shopping et revenez vite ^^</p>
-		</div>
+        <div class="notification is-warning">
+            
+            <p><i class="fa fa-shopping-cart icon is-large fa-2x" aria-hidden="true"></i>
+Votre panier est vide! Allez faire un peu de shopping et revenez vite </p>        
+        </div>
     <?php else : ?>
         <!-- alors affiche le panier -->
-    	<h2>Votre panier:</h2>
-
-    	<table class="table table-bordered table-hover">
+    	<table class="table is-fullwidth is-narrow">
     		<thead>
     			<tr>
-    				<td>index</td>
-    				<td>titre</td>
-                    <td>quantité</td>
-    				<td>prix U</td>
-                    <td>total</td>
-                    <td>supprimer</td>
+    				<td class="has-text-weight-bold">Titre</td>
+                    <td class="has-text-weight-bold">Quantité</td>
+    				<td class="has-text-weight-bold	 has-text-centered">Prix U</td>
+                    <td class="has-text-weight-bold has-text-centered">Total</td>
+                    <td class="has-text-weight-bold has-text-centered">Supprimer</td>
     			</tr>
     		</thead>
     		<tbody>
             <?php foreach ($cart as $itemIndex => $item) : ?>
+            <?php   $link = "product.php?index=". $itemIndex; ?>
+
     			<tr>
-    				<td><span class="badge"><?= $itemIndex ?></span></td>
-    				<td><?= $item["title"] ?></td>
+    				<td><a href="<?= $link ?>"><?= $item["title"] ?></a></td>
                     <td>
                         <form class="input-group" action="cart.php" method="post">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit" name="product-remove">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                            </span>
-                            <input
-                                type="hidden"
-                                name="product-index"
-                                value="<?= $itemIndex ?>"
-                            >
-                            <input
-                                type="text"
-                                class="form-control product-quantity"
-                                name="product-quantity"
-                                value="<?= $item["qt"] ?>"
-                            >
-                            <span class="input-group-btn">
-                                <button  class="btn btn-default" type="submit" name="product-add">
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <button class="button is-warning is-small" type="submit" name="product-remove">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <div class="control">
+                                    <input
+                                        type="hidden"
+                                        name="product-index"
+                                        value="<?= $itemIndex ?>"
+                                    >
+                                    <input
+                                        type="text"
+                                        class="input has-text-centered is-small"
+                                        name="product-quantity"
+                                        value="<?= $item["qt"] ?>"
+                                    >
+                                </div>
+                                <div class="control">
+                                <button  class="button is-warning is-small" type="submit" name="product-add">
                                     <i class="fa fa-plus"></i>
                                 </button>
-                            </span>
+                                </div>
+                            </div>
                         </form>
                     </td>
-    				<!-- 12 000 000,45 -->
-    	            <td><?= getDisplayAmount($item["price"]) ?></td>
-                    <td><?= getDisplayAmount($item["qt"] * $item["price"]) ?></td>
+     				<!-- 12 000 000,45 -->
+    	            <td class="has-text-centered"><?= getDisplayAmount($item["price"]) ?></td>
+                    <td class="is-selected has-text-centered "><?= getDisplayAmount($item["qt"] * $item["price"]) ?></td>
                     <td>
                         <form class="" action="cart.php" method="post">
                             <input
@@ -66,7 +82,7 @@
                                 name="cart-item-index"
                                 value="<?= $itemIndex ?>"
                             >
-                            <button class="btn btn-default" type="submit" name="cart-item-delete">
+                            <button class="button is-danger" type="submit" name="cart-item-delete">
                                 <i class="fa fa-times-circle"></i>
                             </button>
                         </form>
@@ -76,8 +92,8 @@
     		</tbody>
     		<tfoot>
     			<tr>
-    				<td colspan=4 >Total : </td>
-    				<td><?= getDisplayAmount($total) ?></td>
+    				<td colspan=3 ></td>
+    				<td class="is-selected has-text-centered has-text-weight-bold "><?= getDisplayAmount($total) ?></td>
     			</tr>
     		</tfoot>
     	</table>
@@ -85,9 +101,19 @@
         <form class="pull-right" action="cart.php" method="post">
             <!-- <input type="submit" class="btn" name="cart-empty" value="Vider le panier"> -->
             <!-- equivalent -->
-            <button class="btn btn-warning" type="submit" name="cart-empty" value="true">Vider le panier</button>
+            <button class="button is-warning is-hovered" type="submit" name="cart-empty" value="true">
+                <span class="icon">
+                    <i class="fa fa-eraser"></i>
+                </span>
+                <span>Vider le panier</span>
+            </button>
             <?php if(isLoggedIn()) : ?>
-                <button class="btn btn-success" type="submit" name="cart-save" value="true">Valider la commande</button>
+                <button class="button is-success" type="submit" name="cart-save" value="true">
+                <span class="icon">
+                    <i class="fa fa-money"></i>
+                </span>
+                <span>Valider la commande</span>
+                </button>
             <?php endif; ?>
         </form>
     <?php endif; ?>

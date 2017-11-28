@@ -1,6 +1,51 @@
-/*
- * Fonts
- */
+/* Deleted price */
+
+.del {
+    text-decoration: line-through;
+}
+
+
+/* delete undeline link hover */
+
+a:hover {
+    text-decoration: none;
+}
+
+
+/* largeur des td title */
+
+.td-title {
+    width: 65%;
+}
+
+
+/* height min pour la description produit*/
+
+.desc {
+    min-height: 350px;
+}
+
+
+/* shadow pour l'image du produit */
+
+.thumbnail {
+    box-shadow: 0px 0px 19px -6px;
+}
+
+
+/* content div */
+
+.content {
+    min-height: 700px;
+    margin-top: 2%;
+}
+
+
+/* animation model */
+
+.contents {
+    margin-bottom: 5%;
+}
 
 body,
 input,

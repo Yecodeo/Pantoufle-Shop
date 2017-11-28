@@ -16,20 +16,6 @@ function userHasCart() {
 
 function emptyCart() {
     $_SESSION["cart"] = [];
-
-    // pas de session_unset("cart") ... la fonction vide TOUTE la session
-    // par contre unset($var [, $var2 ...]) permet de supprimer UNE (ou +) variable
-    // unset($_SESSION["cart"]); // supprime juste la case "cart" du tableau $_SESSION
-    // ici on ne l'utilise pas parce qu'on veut quand même que le tableau du panier existe
-    // (même vide)
-    // vider toute la session:
-    // équivalent à considérer mon visiteur comme un nouveau visiteur
-    // attention, si j'ai stocké autre chose que mon panier dans la session
-    // ça va l'effacer aussi
-    // session_unset();
-    // ici pour que la suite du script se déroule bien
-    // il faudra donc que je réinitialise un "panier vide"
-    // $_SESSION["cart"] = [];
 }
 
 function addOneProductToCart($product) {
@@ -80,6 +66,15 @@ function getCartTotal() {
     return $total;
 }
 
+function getTotalitem()
+{
+    $total = 0;
+    foreach ($_SESSION['cart'] as $value) {
+        $total += 1;
+    }
+    return $total;
+}
+
 /********* GESTION DES UTILISATEURS *********/
 /* j'ai besoin d'une variable (de session) pour stocker les infos relatives à l'utilisateur connecté
  $_SESSION["user"]
@@ -106,9 +101,19 @@ function isLoggedIn() {
 }
 
 function isAdmin() {
-    return $_SESSION["user"]["group"] == "admin";
+    if (isset($_SESSION["user"]["group"])){
+        return $_SESSION["user"]["group"] == "admin";
+    }
 }
 
+function isLogged(){
+    if (isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
+        return true;
+    } else 
+    {
+        return false;
+    }
+}
 function getUserId() {
     return $_SESSION["user"]["id"];
 }
@@ -120,15 +125,7 @@ function getUserFirstname() {
 // "dé-authentifier" mon utilisateur <==> le "déconnecter" de l'application
 // <==> vider les infos qui sont en session
 function logUserOut() {
-    //  "déconnecter" mon user mais conserver le contenu de son panier
     unset($_SESSION["user"]);
-
-    // vide les variables de la session, garde la même session active (id de session ne change pas)
-    // session_unset();
-
-    // détruit la session (sur le serveur) plus d'id de session, le cookie est toujours dans le navigateur de l'utilisateur mais l'id ne correspond plus à aucune donnée sur le serveur
-    //  vide le panier avec
-    // session_destroy();
 }
 
  ?>

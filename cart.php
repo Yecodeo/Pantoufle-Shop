@@ -1,18 +1,7 @@
 <?php
 require("inc/functions.php");
 
-// cart: script qui va gérer l'ajout d'un produit dans le panier
 
-// TRAITEMENT DES ACTIONS SUR LE PANIER
-// REINIT PANIER
-/* je (ré)initialise mon panier
-- si il n'existe pas encore
-- OU si je viens de recevoir l'ordre de le vider 'isset($_POST["cart-empty"])'
-(si la variable $_POST["cart-empty"] existe
-ça veut dire que c'est le formulaire qui contient
-l'input name="cart-empty" qui a été soumis
-= on veut vider le panier)
-*/
 if(!userHasCart() || isset($_POST["cart-empty"])){
     emptyCart();
 	if(isset($_POST["cart-empty"])) {
