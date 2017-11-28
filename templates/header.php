@@ -17,6 +17,7 @@
     <header class="navbar is-info">
         <div class="navbar-start">
             <a class="navbar-item" href="index.php">
+                <img class="image" src="images/logo.png" alt="">
                 <h3 class="title is-3 has-text-white"> Pantouf'land </h3>
             </a>
         </div>

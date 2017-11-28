@@ -35,10 +35,10 @@
                         <?= empty($clientData["address"]) ? "Adresse non renseignée" : $clientData["address"] ?>
                     </div>
                     <div>
-                        <?= ($clientData["zipcode"] != "")? $clientData["zipcode"] : "Code postale non renseigné" ?>
+                        <?= ($clientData["zipcode"] != "") ? $clientData["zipcode"] : "Code postale non renseigné" ?>
                     </div>
                     <div>
-                        <?= ($clientData["city"] != "")? $clientData["city"] : "Ville non renseignée" ?>                   
+                        <?= ($clientData["city"] != "") ? $clientData["city"] : "Ville non renseignée" ?>                   
                     </div>
                 </div>
             </div>

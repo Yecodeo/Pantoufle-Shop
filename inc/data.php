@@ -92,6 +92,18 @@ function getUserFromEmail($email) {
 	return $result;
 }
 
+function verifPassword($id){
+    global $db_connect;
+    $sql = "SELECT password
+            FROM clients
+            WHERE id=:id";
+    $query = $db_connect->prepare($sql);
+    $query->bindValue(':id', $id);
+    $query->execute();
+
+    $res = $query->fetch(PDO::FETCH_ASSOC);
+    return  $res;
+}
 /*
 * Trouver un utilisateur par l'id
 */
@@ -109,6 +121,44 @@ function getUser($id) {
 	return $result;
 }
 
+/*
+* Mettre a jour un produit
+*/
+function updateProfile($data){
+    try
+   {
+
+       global $db_connect;
+       $sql =  'UPDATE clients 
+               SET     first_name= :first_name,
+                       last_name= :last_name,
+                       address= :address,
+                       zipcode= :zipcode,
+                       city= :city,
+                       phone= :phone,                                
+                       email= :email, 
+                       password= :password 
+               WHERE id= :id';
+       $update = $db_connect->prepare($sql);
+       
+       $update->bindValue(':first_name', $data['first_name'], PDO::PARAM_STR);       
+       $update->bindValue(':last_name', $data['last_name'], PDO::PARAM_STR);       
+       $update->bindValue(':address', $data['address'], PDO::PARAM_STR);       
+       $update->bindValue(':zipcode', $data['zipcode'], PDO::PARAM_STR);       
+       $update->bindValue(':city', $data['city'], PDO::PARAM_STR);       
+       $update->bindValue(':phone', $data['phone'], PDO::PARAM_STR);       
+       $update->bindValue(':email', $data['email'], PDO::PARAM_STR);       
+       $update->bindValue(':password', password_hash($data['password'], PASSWORD_DEFAULT) , PDO::PARAM_INT);       
+       $update->bindParam(':id', $data['id'], PDO::PARAM_INT);       
+       
+       $update->execute();
+       return true;     
+   }
+       catch(Exception $e)
+   {
+       return false;  
+   }
+}
 /*
 * Enregistrer un panier
 */

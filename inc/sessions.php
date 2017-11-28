@@ -75,18 +75,7 @@ function getTotalitem()
     return $total;
 }
 
-/********* GESTION DES UTILISATEURS *********/
-/* j'ai besoin d'une variable (de session) pour stocker les infos relatives à l'utilisateur connecté
- $_SESSION["user"]
- * id
- * first_name
- * last_name
-
- Si mon utilisateur s'est identifié, il y a des valeurs dans $_SESSION["user"]
- Si l'utilisateur n'est pas identifié, $_SESSION["user"] est vide
-*/
-
-// remplir $_SESSION["user"] <==> "connecter mon utilisateur"
+ 
 function rememberUserData($user) {
     $_SESSION["user"] = [
         "id" => $user["id"],
