@@ -129,7 +129,7 @@ if (!empty($_GET['id']) && isset($_GET['id']) ){
 		<div class="field">
 			<label class="label">Ancien mot de passe</label>
 			<div class="control has-icons-left">
-				<input class="input" type="password" name="old_password" value="admin">
+				<input class="input" type="password" name="old_password" value="">
 				<span class="icon is-small is-left">
 					<i class="fa fa-key"></i>
 				</span>
@@ -138,7 +138,7 @@ if (!empty($_GET['id']) && isset($_GET['id']) ){
 		<div class="field">
 			<label class="label">Nouveau mot de passe</label>
 			<div class="control has-icons-left">
-				<input class="input" type="password" name="new_password" value="admin">
+				<input class="input" type="password" name="new_password" value="">
 				<span class="icon is-small is-left">
 					<i class="fa fa-key"></i>
 				</span>
@@ -147,7 +147,7 @@ if (!empty($_GET['id']) && isset($_GET['id']) ){
 		<div class="field">
 			<label class="label">Confirmation de mot de passe</label>
 			<div class="control has-icons-left">
-				<input class="input" type="password" name="new_password_confirm" value="admin">
+				<input class="input" type="password" name="new_password_confirm" value="">
 				<span class="icon is-small is-left">
 					<i class="fa fa-key"></i>
 				</span>

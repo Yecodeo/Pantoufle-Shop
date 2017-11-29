@@ -28,6 +28,26 @@ function getAllProducts() {
     return $products;
 }
 
+/**
+ * lister toutes les commandes de tous les client
+ */
+
+ function getAllOrder(){
+     global $db_connect;
+     $sql ='SELECT clients.first_name, clients.last_name, carts.id, sum(cart_lines.quantity)  as quantity
+            FROM clients 
+            LEFT JOIN carts 
+            ON carts.client_id = clients.id
+            LEFT JOIN cart_lines 
+            ON cart_lines.cart_id = carts.id 
+            WHERE clients.id = carts.client_id
+            GROUP BY cart_lines.cart_id';
+
+    $sth = $db_connect->prepare($sql);
+    $sth->execute();
+
+    return $sth->fetchAll(PDO::FETCH_ASSOC);
+ }
 /*
 * Récuperer un seul produit par l'id
 */
@@ -121,6 +141,20 @@ function getUser($id) {
 	return $result;
 }
 
+/**
+ * Lister tous les clients
+ */
+function getAllUsers(){
+    global $db_connect;
+    $sql = 'SELECT clients.id, clients.first_name, clients.last_name, clients.address, clients.zipcode, clients.city, clients.phone, clients.email , groups.name 
+            FROM clients 
+            LEFT JOIN groups 
+            on clients.group_id = groups.id';
+
+    $all = $db_connect->prepare($sql);
+     $all->execute();
+    return $all->fetchALL(PDO::FETCH_ASSOC);
+}
 /*
 * Mettre a jour un produit
 */
@@ -177,12 +211,13 @@ function saveCartForUser($id, $cart) {
     $sql = 'INSERT INTO cart_lines (cart_id, product_id, quantity)
             VALUES (:cartId, :productId, :quantity)';
 
+
+
     $query = $db_connect->prepare($sql);
     $query->bindValue(":cartId", $cartId, PDO::PARAM_INT);
     $query->bindParam(":productId", $prodId, PDO::PARAM_INT );
     $query->bindParam(":quantity", $lineQt, PDO::PARAM_INT );
-
-
+ 
     foreach ($cart as $productId => $line) {
         $prodId = $productId;
         $lineQt = $line["qt"];
@@ -190,14 +225,8 @@ function saveCartForUser($id, $cart) {
     }
 
 }
-
-/*
-* avoir le nombre d'article dans le panier
-*/
-function getCartCount($id){
-    $sql = "SELECT cart.id, cart.client_id,cartL.cart_id,cartL.product_id FROM carts WHERE client_id = 4
-            LEFT JOIN cart_line ON cartL.cart_id = cart.id";
-}
+ 
+ 
 /*
 * Récuperer le panier d'un client
 */

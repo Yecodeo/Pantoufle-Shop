@@ -76,7 +76,7 @@
                         <span class="icon"><i class="fa fa-product-hunt" aria-hidden="true"></i></span>
                         <span>Produits</span>
                     </a>
-                    <a href="admin.php?pg=client" class="navbar-item">
+                    <a href="admin.php?pg=clients" class="navbar-item">
                     <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
                         <span>Clients</span> 
                     </a>
