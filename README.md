@@ -1,13 +1,8 @@
 
 # Pantoufle lande
 
-### :large_blue_circle: Objectifs
+#### :large_blue_circle: Objectifs
 Crée un site marchand, avec un panier, un espace utitlisateur, crée un espace pour l'administrateur pour gérer les produits, les clients, et toutes les commandes.
-
-##### Resultat final
-  - voir le dossier screenshot
-
-### Objectifs
 
 ##### Administration  
     - gestion de produits
@@ -34,3 +29,7 @@ Crée un site marchand, avec un panier, un espace utitlisateur, crée un espace 
   - Mysql
   - PDO
   - Programmation procédurial
+
+  
+##### Resultat final
+  - voir le dossier screenshot
