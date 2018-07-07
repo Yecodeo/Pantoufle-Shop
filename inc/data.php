@@ -49,7 +49,7 @@ function getAllProducts() {
             LEFT JOIN cart_lines
             ON cart_lines.cart_id = carts.id
             WHERE clients.id = carts.client_id
-            GROUP BY cart_lines.cart_id';
+            GROUP BY cart_lines.cart_id, clients.first_name, carts.client_id,carts.id ';
 
     $sth = $db_connect->prepare($sql);
     $sth->execute();
