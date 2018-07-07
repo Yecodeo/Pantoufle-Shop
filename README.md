@@ -2,7 +2,7 @@
 # Pantoufle lande
 
 ### :large_blue_circle: Objectifs
-écrire un site marchand, avec espace membre, et controle admin pour gerer les produits et les commandes
+Crée un site marchand, avec un panier, un espace utitlisateur, crée un espace pour l'administrateur pour gérer les produits, les clients, et toutes les commandes.
 
 ##### Resultat final
   - voir le dossier screenshot
