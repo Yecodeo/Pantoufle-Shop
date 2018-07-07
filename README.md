@@ -30,6 +30,6 @@ Crée un site marchand, avec un panier, un espace utitlisateur, crée un espace 
   - PDO
   - Programmation procédurial
 
-  
+
 ##### Resultat final
-  - voir le dossier screenshot
+  - voir le dossier /screenshot
