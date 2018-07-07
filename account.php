@@ -1,17 +1,12 @@
 <?php
+/**
+ * Gestion du compte utilisateur
+ * @author afjnik hassan
+ */
 require("inc/functions.php");
 
-
-/* Ce fichier gère la page "Mon Compte" d'un client
- *
- * Consignes générales:
- * - les accès à la base de données doivent se faire dans des fonctions, dans le fichier data.php
- * - la manipulation des sessions se fait dans des fonctions, dans le fichier sessions.php
- */
-
 /**
- * Verifier si l'utilisateur est authentifier
- * sinon redirection a la page login
+ * vérifier si user authentifier
  */
 if(!isLoggedIn()) {
     header("Location: login.php");
@@ -24,7 +19,7 @@ $id = getUserId();
 $clientData = getUser($id);
 
 /**
- * Lister toutes les commandes du client 
+ * Lister toutes les commandes du client
  */
  $clientCarts = getClientCarts($id);
 

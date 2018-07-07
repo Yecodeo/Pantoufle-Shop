@@ -1,12 +1,16 @@
- 
-<?php 
-if(!isLoggedIn()) {
-    header("Location: login.php");
-}
-if (!isAdmin()){
-    header('Location: index.php');
-}
-$orders = getAllOrder();
+
+<?php
+  /**
+   * Page des commandes
+   * @author afjnik hassan
+   */
+  if(!isLoggedIn()) {
+      header("Location: login.php");
+  }
+  if (!isAdmin()){
+      header('Location: index.php');
+  }
+  $orders = getAllOrder();
 ?>
 
 
@@ -36,7 +40,7 @@ $orders = getAllOrder();
                         </span>
                     </td>
 
-                    <td> 
+                    <td>
                         <a class="button is-danger">
                             <span class="icon">
                             <i class="fa fa-trash-o"></i>

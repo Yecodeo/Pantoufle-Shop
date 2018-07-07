@@ -1,16 +1,19 @@
 <?php
 /**
- * Rourine sessions
+ * fournisser les routine de connexion a mysql
+ * et renomer le fichier en data.php
  * @author afjnik hassan
  */
+
+
 
 /**
  * param connexion BDD
  */
 $host = "localhost";
 $user = "root";
-$pass = "048861279";
-$dbname = "eshop";
+$pass = "";
+$dbname = "";
 
 /**
  * se connecter a mysql

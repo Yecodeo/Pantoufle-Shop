@@ -1,11 +1,15 @@
-<?php 
-    if(!isLoggedIn()) {
-        header("Location: login.php");
-    }
-    if (!isAdmin()){
-        header('Location: index.php');
-    }
-$users = getAllUsers();
+<?php
+  /**
+   * page list des clients
+   * @author afjnik hassan
+   */
+  if(!isLoggedIn()) {
+      header("Location: login.php");
+  }
+  if (!isAdmin()){
+      header('Location: index.php');
+  }
+  $users = getAllUsers();
 ?>
 
 
@@ -38,16 +42,16 @@ $users = getAllUsers();
                         <td class="is-capitalized"><?= $value['phone'] ?></td>
                         <td class="is-capitalized"><?= $value['email'] ?></td>
                         <td class="is-capitalized">
-                            <i class="tag 
-                                <?php 
+                            <i class="tag
+                                <?php
                                    if  ($value['name'] == 'admin') {
                                         echo 'is-warning';
                                    } else {
-                                    echo 'is-white'; 
+                                    echo 'is-white';
                                    }
                                 ?> is-medium"><?= $value['name'] ?></i>
                         </td>
-                        <td> 
+                        <td>
                             <a class="button is-danger">
                                 <span class="icon">
                                 <i class="fa fa-trash-o"></i>
@@ -60,4 +64,3 @@ $users = getAllUsers();
         </tbody>
     </table>
 </div>
- 

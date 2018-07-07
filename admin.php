@@ -1,22 +1,29 @@
 <?php
-
+/**
+ * page d'adiministration
+ * @author afjnik hassan
+ */
 require("inc/functions.php");
 
-// - cette page ne s'affiche que si l'utilisateur est admin.
-
-//   S'il n'est pas identifié, il est redirigé vers la page de login
+/**
+ * si pas identifier revoi au login
+ */
 if(!isLoggedIn()) {
     header("Location: login.php");
 }
 
-//   S'il est connecté en tant que client, il est redirigé vers la page d'accueil
+/**
+ * Si authentifier comme client on le redirige
+ */
 if(!isAdmin()) {
     header("Location: index.php");
 }
-// echo "Bienvenue, maître";
 
 include("templates/header.php");
 
+/**
+ * gestion des pages d'admin
+ */
 if (isAdmin()) {
     if (!empty($_GET['pg'])) {
         $pg = $_GET['pg'];

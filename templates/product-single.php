@@ -1,3 +1,9 @@
+<?php
+/**
+ * affichage d'un produit
+ * @author afjnik hassan
+ */
+?>
 <main class="tile is-ancestor">
 	<div class="tile is-vertical is-parent is-5">
 		<div class="tile is-child">
@@ -22,7 +28,6 @@
 						</div>
 					</div>
 					<div class="control">
-
 					</div>
 				</div>
 			</div>
@@ -31,21 +36,19 @@
 			</div>
 			<div>
 			<form action="cart.php" method="post">
-							<input
-								type="hidden"
-								name="product-index"
-								value="<?= $product["id"] ?>"
-							/>
-							<button type="submit" class="button is-pulled-right is-info">
-								<span class="icon is-small">
-									<i class="fa fa-cart-plus"></i>
-								</span>
-								<span>Ajouté au panier</span>
-							</button >
-						</form>	
-
+				<input
+					type="hidden"
+					name="product-index"
+					value="<?= $product["id"] ?>"
+				/>
+				<button type="submit" class="button is-pulled-right is-info">
+					<span class="icon is-small">
+						<i class="fa fa-cart-plus"></i>
+					</span>
+					<span>Ajouté au panier</span>
+				</button >
+			</form>
 			</div>
 		</div>
 	</div>
 </main>
-
